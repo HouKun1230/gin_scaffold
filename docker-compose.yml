@@ -22,7 +22,7 @@ services:
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
-      - networks:
+    networks:
           - my-net
     expose:
       # Opens port 3306 on the container
@@ -38,7 +38,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8080:8880"
     restart: always
     networks:
       - my-net
