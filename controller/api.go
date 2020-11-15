@@ -31,10 +31,13 @@ func ApiLoginRegister(router *gin.RouterGroup) {
 
 func (demo *ApiController) Login(c *gin.Context) {
 	api := &dto.LoginInput{}
+	//validations
 	if err := api.BindingValidParams(c); err != nil {
 		middleware.ResponseError(c, 2001, err)
 		return
 	}
+
+	// todo: validate against db
 	if api.Username == "admin" && api.Password == "123456" {
 		session := sessions.Default(c)
 		session.Set("user", api.Username)

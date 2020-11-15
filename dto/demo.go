@@ -1,4 +1,4 @@
-package dto
+ package dto
 
 import (
 	"github.com/e421083458/gin_scaffold/public"

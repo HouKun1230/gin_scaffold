@@ -49,6 +49,7 @@ func (f *User) PageList(c *gin.Context, tx *gorm.DB, params *dto.ListPageInput) 
 	var list []User
 	var count int64
 	offset := (params.Page - 1) * params.PageSize
+	// query := public.GormPool
 	query := tx.SetCtx(public.GetGinTraceContext(c))
 	if params.Name != "" {
 		query = query.Where("name = ?", params.Name)
